@@ -20,11 +20,9 @@ const config: Config = {
       keyframes: {
         summonMole: {
           '0%': {
-            // opacity: '0',
             transform: 'translateY: -100%',
           },
           '100%': {
-            opacity: '100%',
             transform: 'translateY: 100%',
           },
         },

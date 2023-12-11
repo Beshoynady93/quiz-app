@@ -33,6 +33,7 @@ const WackaMoleHummer = ({ gameContainerRef }: WackaMoleProps) => {
         style={{
           left: posX,
           top: posY,
+          pointerEvents: 'none',
         }}
         className="absolute border border-red-500 active:-rotate-90"
         ref={hammerRef}
