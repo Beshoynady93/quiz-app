@@ -16,9 +16,11 @@ export const calcHammerPosition = ({
 }: calcHammerPositionProps) => {
   if (!containerRef.current || !hammerRef.current) return;
   const hammerYPosition =
-    yPosition - containerRef.current.offsetLeft - hammerRef.current.height / 2;
+    yPosition -
+    containerRef.current.offsetLeft -
+    hammerRef.current.height / 1.5;
   const hammerXPosition =
-    xPosition - containerRef.current.offsetLeft - hammerRef.current.width / 2;
+    xPosition - containerRef.current.offsetLeft - hammerRef.current.width / 4;
   if (hammerYPosition < 0) {
     if (
       hammerXPosition < 0 ||

@@ -6,7 +6,17 @@ import WakeaMoleHole from './WakeaMoleHole';
 const WackaMoleGame = () => {
   const gameContainerRef = useRef<HTMLDivElement | null>(null);
   const [holes, setHoles] = useState<number[]>(Array(8).fill(0));
+  const [startGame, setStartGame] = useState(false);
   const [score, setScore] = useState(0);
+  const [userClicked, setUserClicked] = useState(false);
+
+  const handleUserClick = (e: React.MouseEvent) => {
+    if (e.type === 'mousedown') {
+      setUserClicked(true);
+    } else if (e.type === 'mouseup') {
+      setUserClicked(false);
+    }
+  };
 
   const popMole = (index: number) => {
     setHoles((prevHoles) => {
@@ -45,9 +55,11 @@ const WackaMoleGame = () => {
       <h1>Score: {score}</h1>
       <div
         ref={gameContainerRef}
-        className="w-11/12 flex-1 relative border bg-wack-a-mole-bg bg-no-repeat bg-cover"
+        className="w-11/12 flex-1 relative border bg-wack-a-mole-bg bg-no-repeat bg-cover cursor-none"
+        onMouseDown={handleUserClick}
+        onMouseUp={handleUserClick}
       >
-        <div className="grid grid-cols-4 mt-[10%]">
+        <div className="grid grid-cols-4 mt-[7%] mx-auto justify-items-center">
           {holes.map((hole, idx) => (
             <WakeaMoleHole
               key={idx}
@@ -57,7 +69,10 @@ const WackaMoleGame = () => {
             />
           ))}
         </div>
-        <WackaMoleHummer gameContainerRef={gameContainerRef} />
+        <WackaMoleHummer
+          gameContainerRef={gameContainerRef}
+          userClicked={userClicked}
+        />
       </div>
     </>
   );

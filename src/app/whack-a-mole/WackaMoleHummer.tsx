@@ -5,9 +5,10 @@ import { calcHammerPosition } from './calcHammerPosition';
 
 type WackaMoleProps = {
   gameContainerRef: React.RefObject<HTMLDivElement>;
+  userClicked: boolean;
 };
 
-const WackaMoleHummer = ({ gameContainerRef }: WackaMoleProps) => {
+const WackaMoleHummer = ({ gameContainerRef, userClicked }: WackaMoleProps) => {
   const hammerRef = useRef<HTMLImageElement | null>(null);
   const [posX, setPosX] = useState<number>();
   const [posY, setPosY] = useState<number>();
@@ -35,7 +36,7 @@ const WackaMoleHummer = ({ gameContainerRef }: WackaMoleProps) => {
           top: posY,
           pointerEvents: 'none',
         }}
-        className="absolute border border-red-500 active:-rotate-90"
+        className={`absolute ${userClicked ? '-rotate-90' : ''}`}
         ref={hammerRef}
         src="/wack-a-mole-hammer2.png"
         alt="wack a mole hummer"

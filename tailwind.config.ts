@@ -12,7 +12,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'wack-a-mole-bg': 'url(/wack-a-mole-bg.jpg)',
+        'wack-a-mole-bg': 'url(/wack-a-mole-bg.png)',
       },
       animation: {
         'summon-mole': 'summonMole 5s ease',
