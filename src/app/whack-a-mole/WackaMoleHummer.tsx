@@ -14,40 +14,6 @@ const WackaMoleHummer = ({ gameContainerRef }: WackaMoleProps) => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const calcHammerYPosition = () => {
-        if (!gameContainerRef.current) return;
-        if (!hammerRef.current) return;
-        const hammerYPosition = e.clientY - gameContainerRef.current.offsetLeft;
-        if (hammerYPosition < 0) {
-          return;
-        } else if (
-          hammerYPosition >
-          gameContainerRef.current.clientHeight - hammerRef.current.height
-        ) {
-          return;
-        } else {
-          setPosY(hammerYPosition);
-        }
-      };
-      const calcHammerXPosition = () => {
-        if (!gameContainerRef.current) return;
-        if (!hammerRef.current) return;
-        const hammerXPosition =
-          e.clientX -
-          gameContainerRef.current.offsetLeft -
-          hammerRef.current.width / 2;
-        if (
-          hammerXPosition >
-          gameContainerRef.current.clientWidth - hammerRef.current.width
-        ) {
-          return;
-        } else if (hammerXPosition < 0) {
-          return;
-        } else {
-          setPosX(hammerXPosition);
-        }
-      };
-
       calcHammerPosition({
         xPosition: e.clientX,
         yPosition: e.clientY,
@@ -56,13 +22,11 @@ const WackaMoleHummer = ({ gameContainerRef }: WackaMoleProps) => {
         setX: setPosX,
         setY: setPosY,
       });
-
-      // calcHammerXPosition();
-      // calcHammerYPosition();
     };
     if (!gameContainerRef.current) return;
     gameContainerRef.current.onmousemove = handleMouseMove;
   }, [gameContainerRef]);
+
   return (
     <>
       <Image
@@ -70,9 +34,9 @@ const WackaMoleHummer = ({ gameContainerRef }: WackaMoleProps) => {
           left: posX,
           top: posY,
         }}
-        className="absolute border border-red-500"
+        className="absolute border border-red-500 active:-rotate-90"
         ref={hammerRef}
-        src="/wack-a-mole-hammer.png"
+        src="/wack-a-mole-hammer2.png"
         alt="wack a mole hummer"
         width={200}
         height={400}
