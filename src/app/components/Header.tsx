@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <header>
       <div>
-        <h1>Quiz App</h1>
+        <h1>
+          <Link href="/">Quiz App</Link>
+        </h1>
       </div>
       <div>
         <Link href="/whack-a-mole">
