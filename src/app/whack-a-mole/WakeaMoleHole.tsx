@@ -29,7 +29,6 @@ const WakeaMoleHole = ({ hole, index, wackMole }: WakeaMoleProps) => {
         />
       ) : (
         <Image
-          className="animate-summon-mole"
           src="/wack-a-mole-mole-crope.png"
           alt="mole"
           width={150}

@@ -54,9 +54,10 @@ const WackaMoleGame = () => {
   return (
     <>
       <div className="flex items-center justify-between w-11/12 self-stretch mx-auto">
-        <h1>Score: {score}</h1>
+        <span className="text-lg">Score: {score}</span>
         <button
           className="bg-white px-4 py-2 text-black rounded font-bold"
+          disabled={!startGame}
           onClick={() => {
             setStartGame(false);
             setScore(0);
@@ -76,7 +77,7 @@ const WackaMoleGame = () => {
         {!startGame && (
           <div className="absolute inset-0 bg-white bg-opacity-70 flex items-center justify-center">
             <button
-              className="bg-white px-6 py-4 text-black rounded font-bold"
+              className="bg-white px-6 py-4 text-black rounded-md font-bold"
               onClick={() => setStartGame(true)}
             >
               Start Game
